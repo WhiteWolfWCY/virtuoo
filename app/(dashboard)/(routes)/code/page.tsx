@@ -18,9 +18,11 @@ import { Loader } from "@/components/Loader";
 import { cn } from "@/lib/utils";
 import { UserAvatar } from "@/components/UserAvatar";
 import { BotAvatar } from "@/components/BotAvatar";
-import ReactMarkdown from "react-markdown"
+import ReactMarkdown from "react-markdown";
+import { useProModal } from "@/hooks/use-pro-modal";
 
 export default function CodePage() {
+  const proModal = useProModal();
   const router = useRouter();
 
   const [messages, setMessages] = useState<
@@ -51,9 +53,10 @@ export default function CodePage() {
       setMessages((current) => [...current, userMessage, response.data]);
 
       form.reset();
-    } catch (error) {
-      // TODO: Open Pro Modal
-      console.log(error);
+    } catch (error: any) {
+      if (error?.response?.status === 403) {
+        proModal.onOpen();
+      }
     } finally {
       router.refresh();
     }
@@ -122,14 +125,14 @@ export default function CodePage() {
                 {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
                 <ReactMarkdown
                   components={{
-                    pre: ({ node, ...props}) => (
+                    pre: ({ node, ...props }) => (
                       <div className="overflow-auto w-full my-2 bg-black/10 p-2 rounded-lg">
                         <pre {...props} />
                       </div>
                     ),
-                    code: ({node, ...props}) => (
+                    code: ({ node, ...props }) => (
                       <code className="bg-black/10 rounded-lg p-1" {...props} />
-                    )
+                    ),
                   }}
                   className="text-sm overflow-hidden leading-7"
                 >

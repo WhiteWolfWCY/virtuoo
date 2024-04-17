@@ -25,8 +25,10 @@ import {
 } from "@/components/ui/select";
 import { Card, CardFooter } from "@/components/ui/card";
 import Image from "next/image";
+import { useProModal } from "@/hooks/use-pro-modal";
 
 export default function ImagePage() {
+  const proModal = useProModal();
   const router = useRouter();
   const [images, setImages] = useState<string[]>([]);
 
@@ -51,9 +53,10 @@ export default function ImagePage() {
 
       setImages(urls);
       form.reset();
-    } catch (error) {
-      // TODO: Open Pro Modal
-      console.log(error);
+    } catch (error: any) {
+      if (error?.response?.status === 403) {
+        proModal.onOpen();
+      }
     } finally {
       router.refresh();
     }
@@ -169,7 +172,11 @@ export default function ImagePage() {
                   <Image alt="Image" fill src={src} />
                 </div>
                 <CardFooter className="p-2">
-                  <Button variant="secondary" className="w-full" onClick={() => window.open(src)}>
+                  <Button
+                    variant="secondary"
+                    className="w-full"
+                    onClick={() => window.open(src)}
+                  >
                     <Download className="h-4 w-4 mr-2" /> Download
                   </Button>
                 </CardFooter>
