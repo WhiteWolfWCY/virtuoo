@@ -79,7 +79,7 @@ export default function ImagePage() {
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2"
+              className="rounded-lg border dark:border-white/50 w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2"
             >
               <FormField
                 name="prompt"
@@ -107,7 +107,7 @@ export default function ImagePage() {
                       value={field.value}
                       defaultValue={field.value}
                     >
-                      <FormControl>
+                      <FormControl className="dark:border-white/50">
                         <SelectTrigger>
                           <SelectValue defaultValue={field.value} />
                         </SelectTrigger>
@@ -134,7 +134,7 @@ export default function ImagePage() {
                       value={field.value}
                       defaultValue={field.value}
                     >
-                      <FormControl>
+                      <FormControl className="dark:border-white/50">
                         <SelectTrigger>
                           <SelectValue defaultValue={field.value} />
                         </SelectTrigger>
@@ -151,7 +151,7 @@ export default function ImagePage() {
                 )}
               />
               <Button
-                className="col-span-12 lg:col-span-2 w-full"
+                className="col-span-12 lg:col-span-2 w-full dark:bg-[#8c52ff] dark:text-white"
                 disabled={isLoading}
               >
                 Generate
