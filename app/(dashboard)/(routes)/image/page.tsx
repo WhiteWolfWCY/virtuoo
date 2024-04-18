@@ -161,7 +161,7 @@ export default function ImagePage() {
         </div>
         <div className="space-y-4 mt-4">
           {isLoading && (
-            <div className="p-20">
+            <div className="p-20 bg-muted dark:bg-[#1c1c1c] rounded-lg">
               <Loader />
             </div>
           )}
@@ -177,7 +177,7 @@ export default function ImagePage() {
                 <CardFooter className="p-2">
                   <Button
                     variant="secondary"
-                    className="w-full"
+                    className="w-full dark:bg-[#8c52ff]"
                     onClick={() => window.open(src)}
                   >
                     <Download className="h-4 w-4 mr-2" /> Download

@@ -57,8 +57,8 @@ export default function CodePage() {
     } catch (error: any) {
       if (error?.response?.status === 403) {
         proModal.onOpen();
-      }else{
-        toast.error("Something went wrong :<")
+      } else {
+        toast.error("Something went wrong :<");
       }
     } finally {
       router.refresh();
@@ -107,7 +107,7 @@ export default function CodePage() {
         </div>
         <div className="space-y-4 mt-4">
           {isLoading && (
-            <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
+            <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted dark:bg-[#1c1c1c]">
               <Loader />
             </div>
           )}
@@ -121,8 +121,8 @@ export default function CodePage() {
                 className={cn(
                   "p-8 w-full flex items-start gap-x-8 rounded-lg",
                   message.role === "user"
-                    ? "bg-white border border-black/10"
-                    : "bg-muted"
+                    ? "bg-white dark:bg-black/50 border border-black/10"
+                    : "bg-muted dark:bg-[#1c1c1c]"
                 )}
               >
                 {message.role === "user" ? <UserAvatar /> : <BotAvatar />}

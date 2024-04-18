@@ -94,7 +94,7 @@ export default function VideoPage() {
         </div>
         <div className="space-y-4 mt-4">
           {isLoading && (
-            <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
+            <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted dark:bg-[#1c1c1c]">
               <Loader />
             </div>
           )}
