@@ -31,7 +31,7 @@ export const FreeCounter = ({ apiLimitCount = 0, isPro = false }: FreeCounterPro
     <div className="px-3">
       <Card className="bg-white/10 border-0">
         <CardContent className="py-6">
-          <div className="text-center text-sm text-white mb-4 space-y-2">
+          <div className="text-center text-sm text-black font-semibold dark:text-white mb-4 space-y-2">
             <p>
               {apiLimitCount} / {MAX_FREE_COUNTS} Free Generations
             </p>
