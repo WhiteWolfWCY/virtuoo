@@ -7,6 +7,9 @@ const nextConfig = {
             },
             {
                 hostname: "oaidalleapiprodscus.blob.core.windows.net"
+            },
+            {
+                hostname: "virtuoo-production.up.railway.app"
             }
         ]
     }
