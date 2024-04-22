@@ -1,9 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: [
-            "oaidalleapiprodscus.blob.core.windows.net",
-            "virtuoo.vercel.app"
+        remotePatterns: [
+            {
+                hostname: "virtuoo.vercel.app"
+            },
+            {
+                hostname: "oaidalleapiprodscus.blob.core.windows.net"
+            }
         ]
     }
 };
